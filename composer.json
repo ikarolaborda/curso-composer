@@ -1,0 +1,13 @@
+{
+    "name": "ikarolaborda/curso-composer",
+    "description": "A simple application for composer learning purposes",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ikaro C. Laborda",
+            "email": "iclaborda@msn.com"
+        }
+    ],
+    "require": {}
+}
