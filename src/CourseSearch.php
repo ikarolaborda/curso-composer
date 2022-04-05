@@ -16,8 +16,8 @@ try {
     $e->getMessage();
 }
 
-if(isset($courses)) {
+if (isset($courses)) {
     foreach ($courses as $course) {
-        file_put_contents('lista-cursos.txt', $course. PHP_EOL, FILE_APPEND);
+        file_put_contents('lista-cursos.txt', $course . PHP_EOL, FILE_APPEND);
     }
 }

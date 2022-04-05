@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace ikarolaborda\coursesearch;
@@ -21,7 +22,7 @@ class Searcher
     public function search(string $url): array
     {
         $response = $this->client
-            ->request('GET',$url);
+            ->request('GET', $url);
 
         $html = (string)$response->getBody();
 
