@@ -14,7 +14,6 @@ try {
     $searcher = new Searcher($client, $crawler);
     $courses = $searcher->search('/cursos-online-programacao/php');
 } catch (GuzzleException $e) {
-    $e->getMessage();
 }
 
 if (isset($courses)) {
