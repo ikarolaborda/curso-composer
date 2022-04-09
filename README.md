@@ -7,3 +7,6 @@ Since this app uses a PHP version with composer installed within a container ima
 ```shell
 make docker-up
 ```
+
+### Goal
+This application also serve the purpose of teaching both XDebug functionalities and TDD techniques, i'll update it periodically.
