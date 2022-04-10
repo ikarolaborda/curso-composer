@@ -56,7 +56,7 @@ class CourseSearchTest extends TestCase
     {
         $crawler = new Crawler();
         $searcher = new Searcher($this->httpClientMock, $crawler);
-        $courses = $searcher->search($this->url);
+        $courses = $searcher->search($this->url,true);
 
         $this->assertCount(3, $courses);
         $this->assertEquals('Curso Teste 1', $courses[0]);

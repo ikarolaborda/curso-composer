@@ -19,22 +19,31 @@ class Searcher
         $this->crawler = $crawler;
     }
 
-    public function search(string $url): array
+    public function search(string $url, bool $testmode = false): array
     {
-        $response = $this->client
-            ->request('GET', $url);
+        try {
+            $response = $this->client
+                ->request('GET', $url);
 
-        $html = (string)$response->getBody();
+            $html = (string)$response->getBody();
 
-        $this->crawler->addHtmlContent($html);
+            $this->crawler->addHtmlContent($html);
 
-        $elementCourses = $this->crawler->filter('span.card-curso__nome');
-        $courses = [];
+            $elementCourses = $this->crawler->filter('span.card-curso__nome');
+            $courses = [];
 
-        foreach ($elementCourses as $element) {
-            $courses[] = $element->textContent;
+            foreach ($elementCourses as $element) {
+                $courses[] = $element->textContent;
+            }
+
+
+        } catch (\GuzzleHttp\Exception\ConnectException $error) {
+           throw new \DomainException('The requested domain does not exist or is not reachable at the moment',0,$error);
         }
-
-        return $courses;
+        $resultCourses[] = !empty($courses) ? $courses : $courses[] = 'No course!';
+        if($testmode) {
+            return $courses;
+        }
+        return $resultCourses;
     }
 }

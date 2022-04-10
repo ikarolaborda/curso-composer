@@ -12,4 +12,7 @@ RUN apt update \
 
 WORKDIR /var/www/curso-composer
 
+RUN mkdir -p /tmp
+RUN touch /tmp/xdebug.log && chmod 755 /tmp/xdebug.log
+
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
